@@ -10,6 +10,4 @@
 
 ![image3](/screenshots/img2.jpg)
 
-Detailed report [here]
-
-[here](https://github.com/sujithktkm/DevOps-HW2/blob/master/coverage/lcov-report/TestGeneration/subject.js.html)
+Detailed report [here](https://github.com/sujithktkm/DevOps-HW2/blob/master/coverage/lcov-report/TestGeneration/subject.js.html)
