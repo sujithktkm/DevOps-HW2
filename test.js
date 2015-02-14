@@ -1,0 +1,28 @@
+var subject = require('./subject.js')
+var mock = require('mock-fs');
+var faker = require('faker');
+subject.inc('',undefined);
+subject.inc('',"");
+subject.inc(01,"");
+subject.inc(-1,"");
+subject.inc(-1,"");
+subject.fileTest('path/fileExists','');
+subject.fileTest('path/fileExists','path/fileExists');
+subject.fileTest('path/fileExists','pathContent/file1');
+mock({"path/fileExists":{},"pathContent":{"file1":"text content"}});
+	subject.fileTest('path/fileExists','pathContent/file1');
+mock.restore();
+mock({"path/fileExists":{}});
+	subject.fileTest('path/fileExists','pathContent/file1');
+mock.restore();
+mock({"path/fileExists":{},"pathContent":{"file1":""}});
+	subject.fileTest('path/fileExists','pathContent/file1');
+mock.restore();
+mock({"pathContent":{"file1":"text content"}});
+	subject.fileTest('path/fileExists','pathContent/file1');
+mock.restore();
+subject.normalize(faker.phone.phoneNumberFormat());
+subject.format(faker.phone.phoneNumberFormat(),'',{"normalize":true});
+subject.blackListNumber("212-212-2121");
+subject.blackListNumber('919-919-9191');
+subject.blackListNumber(faker.phone.phoneNumberFormat());
